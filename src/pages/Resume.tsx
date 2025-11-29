@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 
 const Resume = () => {
   const handleDownload = () => {
-    // TODO: Replace with actual resume file path
-    window.open("/resume.pdf", "_blank");
+    // Create a mailto link as fallback since PDF doesn't exist yet
+    window.location.href = "mailto:ameerulmujahidin96@gmail.com?subject=Resume Request&body=Hi, I would like to request your resume.";
   };
 
   return (

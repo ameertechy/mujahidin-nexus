@@ -197,7 +197,7 @@ const Contact = () => {
               
               <div className="space-y-3">
                 <a
-                  href="https://linkedin.com/in/ameerul-mujahidin"
+                  href="https://www.linkedin.com/in/ameerul-mujahidin-4176aa2b7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 bg-muted rounded-lg hover:bg-primary/10 hover:border-primary/50 border border-transparent transition-all group"
