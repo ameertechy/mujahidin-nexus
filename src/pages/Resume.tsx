@@ -1,11 +1,25 @@
 import { motion } from "framer-motion";
 import { Download, Mail, Phone, MapPin, Award, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const Resume = () => {
+  const { toast } = useToast();
+  
   const handleDownload = () => {
-    // Create a mailto link as fallback since PDF doesn't exist yet
-    window.location.href = "mailto:ameerulmujahidin96@gmail.com?subject=Resume Request&body=Hi, I would like to request your resume.";
+    // Create a temporary link to download the PDF
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Ameerul_Mujahidin_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show success message
+    toast({
+      title: "Download Started",
+      description: "Your resume is being downloaded.",
+    });
   };
 
   return (
