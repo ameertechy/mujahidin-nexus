@@ -140,7 +140,7 @@ const Resume = () => {
                 <span>
                   Backup & DR Upgrade using Veeam + RClone hybrid DR,
                   achieving 100% backup success rates with cloud redundancy and
-                  fast restore (< 30 minutes for an HP server failure).
+                  fast restore ({'< 30 minutes for an HP server failure'}).
                 </span>
               </li>
               <li className="flex items-start">
