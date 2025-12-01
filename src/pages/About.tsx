@@ -7,26 +7,23 @@ const About = () => {
       period: "Sept 2023 - Present",
       role: "IT System Engineer",
       company: "City University Ajman",
-      description: "Leading infrastructure management, cloud migrations, and IT operations"
+      description:
+        "Leading infrastructure management, cloud migrations, and IT operations",
     },
     {
       period: "2020 - 2023",
       role: "IT Support & Technical Engineer",
       company: "TwinMOS Technology Middle East",
-      description: "Provided technical support and system administration"
+      description:
+        "Provided technical support and system administration",
     },
     {
       period: "2018 - 2019",
       role: "Network & System Support Engineer",
       company: "Mundo Trading Pvt Ltd",
-      description: "Managed network infrastructure and system support"
-    }
-  ];
-
-  const certifications = [
-    "Microsoft Azure Administrator Associate (AZ-104)",
-    "ITIL Foundation",
-    "Network Security Specialist"
+      description:
+        "Managed network infrastructure and system support",
+    },
   ];
 
   return (
@@ -51,47 +48,77 @@ const About = () => {
           className="space-y-6 mb-12"
         >
           <p className="text-lg leading-relaxed text-foreground">
-            I'm an experienced <span className="text-primary font-semibold">IT System Engineer</span> currently working at 
-            City University Ajman since September 2023. I specialize in managing large-scale infrastructure, including{" "}
-            <span className="text-primary font-semibold">25+ physical servers</span> and{" "}
-            <span className="text-primary font-semibold">75+ Windows/Linux virtual machines</span>, maintaining an impressive 
-            99.9% availability record.
+            I'm an experienced{" "}
+            <span className="text-primary font-semibold">
+              IT System Engineer
+            </span>{" "}
+            currently working at City University Ajman since September 2023. I
+            specialize in managing large-scale infrastructure, including{" "}
+            <span className="text-primary font-semibold">
+              25+ physical servers
+            </span>{" "}
+            and{" "}
+            <span className="text-primary font-semibold">
+              75+ Windows/Linux virtual machines
+            </span>
+            , maintaining an impressive 99.9% availability record.
           </p>
 
           <p className="text-lg leading-relaxed text-foreground">
-            My expertise spans across on-premises and cloud environments, with hands-on experience in:
+            My expertise spans across on-premises and cloud environments, with
+            hands-on experience in:
           </p>
 
           <ul className="space-y-2 text-foreground">
             <li className="flex items-start">
               <span className="text-primary mr-2">▸</span>
-              <span><strong>Infrastructure Management:</strong> Active Directory, DNS, DHCP, GPO, IIS configuration and optimization</span>
+              <span>
+                <strong>Infrastructure Management:</strong> Active Directory,
+                DNS, DHCP, GPO, IIS configuration and optimization
+              </span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-2">▸</span>
-              <span><strong>Storage Solutions:</strong> SAN/NAS management with Huawei OceanStor and QNAP systems</span>
+              <span>
+                <strong>Storage Solutions:</strong> SAN/NAS management with
+                Huawei OceanStor and QNAP systems
+              </span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-2">▸</span>
-              <span><strong>Cloud & Hybrid:</strong> Azure administration, on-prem to cloud migrations, M365 management</span>
+              <span>
+                <strong>Cloud & Hybrid:</strong> Azure administration, on-prem
+                to cloud migrations, M365 management
+              </span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-2">▸</span>
-              <span><strong>Monitoring & Operations:</strong> PRTG, Zabbix, Grafana for comprehensive infrastructure visibility</span>
+              <span>
+                <strong>Monitoring & Operations:</strong> PRTG, Zabbix, Grafana
+                for comprehensive infrastructure visibility
+              </span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-2">▸</span>
-              <span><strong>Cybersecurity:</strong> Kaspersky EDR deployment, endpoint protection, and security hardening</span>
+              <span>
+                <strong>Cybersecurity:</strong> Kaspersky EDR deployment,
+                endpoint protection, and security hardening
+              </span>
             </li>
             <li className="flex items-start">
               <span className="text-primary mr-2">▸</span>
-              <span><strong>Automation:</strong> Python and PowerShell scripting to reduce manual workloads</span>
+              <span>
+                <strong>Automation:</strong> Python and PowerShell scripting to
+                reduce manual workloads
+              </span>
             </li>
           </ul>
 
           <p className="text-lg leading-relaxed text-foreground">
-            I lead the IT support team, handle Level 3 escalations, and manage vendor relationships including procurement and BOQ preparation. 
-            My approach combines technical expertise with ITIL/ITSM best practices to deliver reliable, scalable infrastructure solutions.
+            I lead the IT support team, handle Level 3 escalations, and manage
+            vendor relationships including procurement and BOQ preparation. My
+            approach combines technical expertise with ITIL/ITSM best practices
+            to deliver reliable, scalable infrastructure solutions.
           </p>
         </motion.div>
 
@@ -118,17 +145,25 @@ const About = () => {
               >
                 <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary" />
                 <div className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-all">
-                  <div className="text-sm text-muted-foreground mb-1">{item.period}</div>
-                  <div className="text-xl font-bold text-foreground">{item.role}</div>
-                  <div className="text-primary font-medium mb-2">{item.company}</div>
-                  <div className="text-muted-foreground">{item.description}</div>
+                  <div className="text-sm text-muted-foreground mb-1">
+                    {item.period}
+                  </div>
+                  <div className="text-xl font-bold text-foreground">
+                    {item.role}
+                  </div>
+                  <div className="text-primary font-medium mb-2">
+                    {item.company}
+                  </div>
+                  <div className="text-muted-foreground">
+                    {item.description}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Certifications */}
+        {/* Certifications – aligned with your CV */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -136,25 +171,30 @@ const About = () => {
         >
           <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
             <Award className="text-primary" />
-            Certifications
+            Certifications & Training
           </h2>
-          <div className="grid gap-4">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="text-foreground font-medium">{cert}</span>
-                </div>
-              </motion.div>
-            ))}
+
+          <div className="space-y-6">
+            {/* Main Certification */}
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Certification</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
+                Microsoft Azure Administrator Associate (AZ-104) (2025–2026)
+              </p>
+            </div>
+
+            {/* Additional Training */}
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Additional Training</h3>
+              <ul className="list-disc list-inside text-sm md:text-base text-muted-foreground space-y-1">
+                <li>AWS Cloud Practitioner</li>
+                <li>Moodle Administrator</li>
+                <li>Apple Support Engineer</li>
+                <li>Generative AI Prompt Engineering</li>
+                <li>Fortinet Certified Fundamentals</li>
+                <li>CCNA</li>
+              </ul>
+            </div>
           </div>
         </motion.div>
       </div>
