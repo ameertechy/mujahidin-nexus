@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import type { ComponentType } from "react";
-import { Cloud, Network, HardDrive, ShieldCheck, Server } from "lucide-react";
 
 import azureLogo from "@/assets/logos/Microsoft_Azure.svg";
 import m365Logo from "@/assets/logos/Microsoft_365_(2022).svg";
@@ -15,45 +13,32 @@ import moodleLogo from "@/assets/logos/Moodle-logo.svg";
 import datacenterLogo from "@/assets/logos/data-center.svg";
 import devopsLogo from "@/assets/logos/devops-2.svg";
 
-type Item =
-  | {
-      kind: "icon";
-      icon: ComponentType<{ size?: number; className?: string }>;
-      label: string;
-    }
-  | {
-      kind: "image";
-      image: string;
-      label: string;
-    };
+type LogoItem = {
+  image: string;
+  label: string;
+};
 
-// mix of your logos + some generic infra icons
-const techItems: Item[] = [
-  { kind: "image", image: azureLogo, label: "Microsoft Azure" },
-  { kind: "image", image: m365Logo, label: "Microsoft 365" },
-  { kind: "image", image: vmwareLogo, label: "VMware" },
-  { kind: "image", image: windowsServerLogo, label: "Windows Server" },
-  { kind: "image", image: linuxLogo, label: "Linux" },
-  { kind: "image", image: gwsLogo, label: "Google Workspace" },
-  { kind: "image", image: sqlServerLogo, label: "SQL Server" },
-  { kind: "image", image: mysqlLogo, label: "MySQL" },
-  { kind: "image", image: moodleLogo, label: "Moodle LMS" },
-  { kind: "image", image: fortinetLogo, label: "Fortinet Firewall" },
-  { kind: "image", image: datacenterLogo, label: "Datacenter" },
-  { kind: "image", image: devopsLogo, label: "DevOps / CI/CD" },
-  { kind: "icon", icon: Cloud, label: "Cloud Services" },
-  { kind: "icon", icon: Network, label: "Networking" },
-  { kind: "icon", icon: HardDrive, label: "Storage" },
-  { kind: "icon", icon: ShieldCheck, label: "Security & EDR" },
-  { kind: "icon", icon: Server, label: "Servers & VMs" },
+const logos: LogoItem[] = [
+  { image: azureLogo, label: "Microsoft Azure" },
+  { image: m365Logo, label: "Microsoft 365" },
+  { image: vmwareLogo, label: "VMware" },
+  { image: windowsServerLogo, label: "Windows Server" },
+  { image: linuxLogo, label: "Linux" },
+  { image: gwsLogo, label: "Google Workspace" },
+  { image: sqlServerLogo, label: "SQL Server" },
+  { image: mysqlLogo, label: "MySQL" },
+  { image: moodleLogo, label: "Moodle" },
+  { image: fortinetLogo, label: "Fortinet" },
+  { image: datacenterLogo, label: "Datacenter" },
+  { image: devopsLogo, label: "DevOps" },
 ];
 
+// simple soft float animation
 const floatVariants = {
   animate: (i: number) => ({
-    y: [0, -8, 0],
-    x: [0, i % 2 === 0 ? 6 : -6, 0],
+    y: [0, -6, 0],
     transition: {
-      duration: 3 + i * 0.2,
+      duration: 3 + i * 0.15,
       repeat: Infinity,
       repeatType: "reverse",
       ease: "easeInOut",
@@ -62,49 +47,49 @@ const floatVariants = {
 };
 
 const HeroTechOrbits = () => {
-  // radius in pixels – tuned so icons sit close to hero text area
-  const baseRadius = 140; // distance from center
-  const radiusJitter = 30;
+  // half on the left, half on the right
+  const mid = Math.ceil(logos.length / 2);
+  const leftLogos = logos.slice(0, mid);
+  const rightLogos = logos.slice(mid);
 
   return (
     <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0">
-      <div className="relative w-full max-w-5xl h-[22rem]">
-        {techItems.map((item, index) => {
-          const angle = (index / techItems.length) * Math.PI * 2;
-          const radius = baseRadius + (index % 4) * (radiusJitter / 3);
-
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-
-          return (
+      <div className="relative w-full max-w-6xl h-full flex justify-between items-center px-4 md:px-16">
+        {/* LEFT COLUMN */}
+        <div className="hidden md:flex flex-col gap-4 items-end">
+          {leftLogos.map((item, index) => (
             <motion.div
-              key={item.label + index}
+              key={item.label}
               custom={index}
               variants={floatVariants}
               animate="animate"
-              className="absolute"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(${x}px, ${y}px)`,
-              }}
             >
-              {/* NO colored background – only logos/icons with a subtle glow */}
-              {item.kind === "image" ? (
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  className="w-7 h-7 md:w-8 md:h-8 object-contain drop-shadow-[0_0_6px_rgba(0,255,255,0.55)]"
-                />
-              ) : (
-                <item.icon
-                  size={22}
-                  className="text-cyan-200 drop-shadow-[0_0_6px_rgba(0,255,255,0.55)]"
-                />
-              )}
+              <img
+                src={item.image}
+                alt={item.label}
+                className="w-8 h-8 object-contain drop-shadow-[0_0_6px_rgba(0,255,255,0.5)]"
+              />
             </motion.div>
-          );
-        })}
+          ))}
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="hidden md:flex flex-col gap-4 items-start">
+          {rightLogos.map((item, index) => (
+            <motion.div
+              key={item.label}
+              custom={index + leftLogos.length}
+              variants={floatVariants}
+              animate="animate"
+            >
+              <img
+                src={item.image}
+                alt={item.label}
+                className="w-8 h-8 object-contain drop-shadow-[0_0_6px_rgba(0,255,255,0.5)]"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
