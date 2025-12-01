@@ -1,12 +1,51 @@
 import { motion } from "framer-motion";
+import type { ComponentType } from "react";
+import {
+  Cloud,
+  Network,
+  HardDrive,
+  ShieldCheck,
+  Server,
+  Database,
+} from "lucide-react";
 
-const techItems = [
-  { label: "Azure / M365", color: "from-sky-500 to-blue-600" },
-  { label: "AD · DNS · DHCP", color: "from-emerald-500 to-teal-500" },
-  { label: "VMware · Hyper-V", color: "from-violet-500 to-indigo-500" },
-  { label: "SAN / NAS Storage", color: "from-cyan-500 to-sky-500" },
-  { label: "Firewall & EDR", color: "from-fuchsia-500 to-purple-600" },
-  { label: "Backup & DR (Veeam)", color: "from-amber-500 to-orange-500" },
+type IconDef = {
+  icon: ComponentType<{ size?: number; className?: string }>;
+  color: string;
+  label: string; // used only for aria-label
+};
+
+const techItems: IconDef[] = [
+  {
+    icon: Cloud,
+    color: "from-sky-500 to-blue-600",
+    label: "Azure and M365",
+  },
+  {
+    icon: Network,
+    color: "from-emerald-500 to-teal-500",
+    label: "AD, DNS, DHCP networking",
+  },
+  {
+    icon: Server,
+    color: "from-violet-500 to-indigo-500",
+    label: "VMware and Hyper-V servers",
+  },
+  {
+    icon: HardDrive,
+    color: "from-cyan-500 to-sky-500",
+    label: "SAN and NAS storage",
+  },
+  {
+    icon: ShieldCheck,
+    color: "from-fuchsia-500 to-purple-600",
+    label: "Firewall and endpoint security",
+  },
+  {
+    icon: Database,
+    color: "from-amber-500 to-orange-500",
+    label: "Backup, DR and databases",
+  },
 ];
 
 const floatVariants = {
@@ -27,6 +66,7 @@ const HeroTechOrbits = () => {
     <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
       <div className="relative w-full max-w-4xl h-80">
         {techItems.map((item, index) => {
+          const Icon = item.icon;
           const radius = 80 + index * 22;
           const angle = (index / techItems.length) * Math.PI * 2;
           const left = 50 + (radius * Math.cos(angle)) / 4;
@@ -41,12 +81,11 @@ const HeroTechOrbits = () => {
               className="absolute"
               style={{ left: `${left}%`, top: `${top}%` }}
             >
-              <div className="rounded-2xl px-4 py-2 bg-gradient-to-br shadow-lg shadow-primary/20 border border-white/10 backdrop-blur-sm text-xs md:text-sm font-semibold text-white whitespace-nowrap">
-                <span
-                  className={`bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}
-                >
-                  {item.label}
-                </span>
+              <div
+                className={`flex items-center justify-center rounded-3xl w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${item.color} shadow-lg shadow-primary/30 border border-white/20 backdrop-blur-sm`}
+                aria-label={item.label}
+              >
+                <Icon className="text-white" size={26} />
               </div>
             </motion.div>
           );
