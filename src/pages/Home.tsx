@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Download, Mail, ArrowRight } from "lucide-react";
-import HeroScene from "@/components/HeroScene";
 import { Button } from "@/components/ui/button";
 
 const Home = () => {
