@@ -2,15 +2,19 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Download, Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import HeroScene from "@/components/HeroScene";  // ✅ add/keep this line
+import HeroScene from "@/components/HeroScene";      // now returns null
+import HeroTechOrbits from "@/components/HeroTechOrbits"; // infra overlay
 
 const Home = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* This now renders nothing, but keeps old layout safe */}
+      {/* Disabled 3D scene (returns null) */}
       <HeroScene />
 
-      {/* Optional soft blobs. Remove these 2 divs if you don't want them. */}
+      {/* Infra-themed floating labels */}
+      <HeroTechOrbits />
+
+      {/* Optional background blobs – keep or remove as you like */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-30 animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-30 animate-pulse" />
 

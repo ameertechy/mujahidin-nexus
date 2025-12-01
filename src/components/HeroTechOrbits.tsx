@@ -42,7 +42,9 @@ const HeroTechOrbits = () => {
               style={{ left: `${left}%`, top: `${top}%` }}
             >
               <div className="rounded-2xl px-4 py-2 bg-gradient-to-br shadow-lg shadow-primary/20 border border-white/10 backdrop-blur-sm text-xs md:text-sm font-semibold text-white whitespace-nowrap">
-                <span className={`bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
+                <span
+                  className={`bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}
+                >
                   {item.label}
                 </span>
               </div>
